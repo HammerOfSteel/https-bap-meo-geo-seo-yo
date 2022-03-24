@@ -1,0 +1,211 @@
+<html>
+<style type="text/css">
+.container {
+  font-family: arial;
+  font-size: 24px;
+  width: 50%;
+  height: 50%;
+  /* Setup */
+  position: relative;
+  margin-top: 10%;
+}
+
+.child {
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 15%;
+  left: 20%;
+}
+/*
+	use @keyframes and the animation property
+	see this code running here: https://codepen.io/hylobates-lar/pen/qBbQeON
+*/
+html, body {
+  width: 100%;
+  height:100%;
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.button {
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 400 !important;
+    background-color: #e63946ff;
+    color: #fff;
+    padding: 23px 50px;
+    margin: auto;
+    text-align: center;
+    display: inline-block !important;
+    text-decoration: none;
+    border: 0px;
+    width: max-content;
+    cursor: pointer;
+    transition: all 0.3s 0s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.04, 1);
+    background-color: rgb(216, 10, 27);
+    text-decoration: none;
+}
+
+/* add extra functionality in button*/
+
+
+/*button sizes*/
+.btn_sm {
+    padding: 17px 40px !important;
+}
+
+.btn_md {
+    padding: 20px 50px !important;
+}
+
+.btn_lg {
+    padding: 23px 60px !important;
+}
+
+
+/*make your button block level*/
+.btn_block {
+    width: 100% !important;
+    padding: 22px 30px !important;
+}
+</style>
+<body>
+<center>
+<div class="container">
+  <div class="child"><h1>You can eat <br><a id="dish"></a></h1><button class="button btn_lg" style="margin-top: 5%" onclick="javascript:window.location.href = 'https://bap-meo-geo-seo-yo.000webhostapp.com/'">No thanks, give me something else</button></div>
+</div>
+</center>
+</body>
+<script>
+const foods = new Map()
+foods.set('Manduguk', {href: "https://www.google.com/search?q=Manduguk", score: "0"})
+foods.set('Boribap', {href: "https://www.google.com/search?q=Boribap", score: "0"})
+foods.set('Hoedeopbap', {href: "https://www.google.com/search?q=Hoedeopbap", score: "0"})
+foods.set('Memil guksu', {href: "https://www.google.com/search?q=Memil guksu", score: "0"})
+foods.set('Nakji bokkeum', {href: "https://www.google.com/search?q=Nakji bokkeum", score: "0"})
+foods.set('Kimchijeon', {href: "https://www.google.com/search?q=Kimchijeon", score: "0"})
+foods.set('Pyeonsu', {href: "https://www.google.com/search?q=Pyeonsu", score: "0"})
+foods.set('Muguk', {href: "https://www.google.com/search?q=Muguk", score: "0"})
+foods.set('Jumulleok', {href: "https://www.google.com/search?q=Jumulleok", score: "0"})
+foods.set('Chueotang', {href: "https://www.google.com/search?q=Chueotang", score: "0"})
+foods.set('Sundaeguk', {href: "https://www.google.com/search?q=Sundaeguk", score: "0"})
+foods.set('Galbitang', {href: "https://www.google.com/search?q=Galbitang", score: "0"})
+foods.set('Yeot', {href: "https://www.google.com/search?q=Yeot", score: "0"})
+foods.set('Yaksik', {href: "https://www.google.com/search?q=Yaksik", score: "0"})
+foods.set('Milkis', {href: "https://www.google.com/search?q=Milkis", score: "0"})
+foods.set('Sujeonggwa', {href: "https://www.google.com/search?q=Sujeonggwa", score: "0"})
+foods.set('Chungmu gimbap', {href: "https://www.google.com/search?q=Chungmu gimbap", score: "0"})
+foods.set('Tteokgalbi', {href: "https://www.google.com/search?q=Tteokgalbi", score: "0"})
+foods.set('Nurungji', {href: "https://www.google.com/search?q=Nurungji", score: "0"})
+foods.set('Ggul tteok', {href: "https://www.google.com/search?q=Ggul tteok", score: "0"})
+foods.set('Dwaeji galbi', {href: "https://www.google.com/search?q=Dwaeji galbi", score: "0"})
+foods.set('Maeuntang', {href: "https://www.google.com/search?q=Maeuntang", score: "0"})
+foods.set('Gyeran jjim', {href: "https://www.google.com/search?q=Gyeran jjim", score: "0"})
+foods.set('Bibim guksu', {href: "https://www.google.com/search?q=Bibim guksu", score: "0"})
+foods.set('Kongguksu', {href: "https://www.google.com/search?q=Kongguksu", score: "0"})
+foods.set('Dasik', {href: "https://www.google.com/search?q=Dasik", score: "0"})
+foods.set('Dalgona', {href: "https://www.google.com/search?q=Dalgona", score: "0"})
+foods.set('Gejang', {href: "https://www.google.com/search?q=Gejang", score: "0"})
+foods.set('Agujjim', {href: "https://www.google.com/search?q=Agujjim", score: "0"})
+foods.set('Chapssaltteok', {href: "https://www.google.com/search?q=Chapssaltteok", score: "0"})
+foods.set('Janchi guksu', {href: "https://www.google.com/search?q=Janchi guksu", score: "0"})
+foods.set('Hwajeon', {href: "https://www.google.com/search?q=Hwajeon", score: "0"})
+foods.set('Kongnamul muchim', {href: "https://www.google.com/search?q=Kongnamul muchim", score: "0"})
+foods.set('Seolleongtang', {href: "https://www.google.com/search?q=Seolleongtang", score: "0"})
+foods.set('Anju', {href: "https://www.google.com/search?q=Anju", score: "0"})
+foods.set('Cheongju Rice Wine', {href: "https://www.google.com/search?q=Cheongju Rice Wine", score: "0"})
+foods.set('Sikhye', {href: "https://www.google.com/search?q=Sikhye", score: "0"})
+foods.set('Korean Corndog', {href: "https://www.google.com/search?q=Korean Corndog", score: "0"})
+foods.set('Mayak gimbap', {href: "https://www.google.com/search?q=Mayak gimbap", score: "0"})
+foods.set('Ogokbap', {href: "https://www.google.com/search?q=Ogokbap", score: "0"})
+foods.set('Chamchi gimbap', {href: "https://www.google.com/search?q=Chamchi gimbap", score: "0"})
+foods.set('Jeyuk bokkeum', {href: "https://www.google.com/search?q=Jeyuk bokkeum", score: "0"})
+foods.set('Galbijjim', {href: "https://www.google.com/search?q=Galbijjim", score: "0"})
+foods.set('Bungeoppang', {href: "https://www.google.com/search?q=Bungeoppang", score: "0"})
+foods.set('Budae jjigae', {href: "https://www.google.com/search?q=Budae jjigae", score: "0"})
+foods.set('Doenjang jjigae', {href: "https://www.google.com/search?q=Doenjang jjigae", score: "0"})
+foods.set('Sundae Sausage', {href: "https://www.google.com/search?q=Sundae Sausage", score: "0"})
+foods.set('Sannakji', {href: "https://www.google.com/search?q=Sannakji", score: "0"})
+foods.set('Bindaetteok', {href: "https://www.google.com/search?q=Bindaetteok", score: "0"})
+foods.set('Songpyeon', {href: "https://www.google.com/search?q=Songpyeon", score: "0"})
+foods.set('Yakgwa', {href: "https://www.google.com/search?q=Yakgwa", score: "0"})
+foods.set('Kalguksu', {href: "https://www.google.com/search?q=Kalguksu", score: "0"})
+foods.set('Gim gui', {href: "https://www.google.com/search?q=Gim gui", score: "0"})
+foods.set('Yuja-cha', {href: "https://www.google.com/search?q=Yuja-cha", score: "0"})
+foods.set('Naengguk', {href: "https://www.google.com/search?q=Naengguk", score: "0"})
+foods.set('Hwachae', {href: "https://www.google.com/search?q=Hwachae", score: "0"})
+foods.set('Milmyeon', {href: "https://www.google.com/search?q=Milmyeon", score: "0"})
+foods.set('Hotteok', {href: "https://www.google.com/search?q=Hotteok", score: "0"})
+foods.set('Dwaeji gukbap', {href: "https://www.google.com/search?q=Dwaeji gukbap", score: "0"})
+foods.set('Pajeon', {href: "https://www.google.com/search?q=Pajeon", score: "0"})
+foods.set('Samgyetang', {href: "https://www.google.com/search?q=Samgyetang", score: "0"})
+foods.set('Geotjeori', {href: "https://www.google.com/search?q=Geotjeori", score: "0"})
+foods.set('Yakiniku', {href: "https://www.google.com/search?q=Yakiniku", score: "0"})
+foods.set('Gamjatang', {href: "https://www.google.com/search?q=Gamjatang", score: "0"})
+foods.set('Kimchi bokkeumbap', {href: "https://www.google.com/search?q=Kimchi bokkeumbap", score: "0"})
+foods.set('Patbingsu', {href: "https://www.google.com/search?q=Patbingsu", score: "0"})
+foods.set('Bossam', {href: "https://www.google.com/search?q=Bossam", score: "0"})
+foods.set('Jokbal', {href: "https://www.google.com/search?q=Jokbal", score: "0"})
+foods.set('Ssam', {href: "https://www.google.com/search?q=Ssam", score: "0"})
+foods.set('Samgak gimbap', {href: "https://www.google.com/search?q=Samgak gimbap", score: "0"})
+foods.set('Ssamjang', {href: "https://www.google.com/search?q=Ssamjang", score: "0"})
+foods.set('Baechu-kimchi', {href: "https://www.google.com/search?q=Baechu-kimchi", score: "0"})
+foods.set('Dakbokkeumtang', {href: "https://www.google.com/search?q=Dakbokkeumtang", score: "0"})
+foods.set('Pa kimchi', {href: "https://www.google.com/search?q=Pa kimchi", score: "0"})
+foods.set('Doenjang', {href: "https://www.google.com/search?q=Doenjang", score: "0"})
+foods.set('Kimchi jjigae', {href: "https://www.google.com/search?q=Kimchi jjigae", score: "0"})
+foods.set('Mandu', {href: "https://www.google.com/search?q=Mandu", score: "0"})
+foods.set('Gyeran mari', {href: "https://www.google.com/search?q=Gyeran mari", score: "0"})
+foods.set('Injeolmi', {href: "https://www.google.com/search?q=Injeolmi", score: "0"})
+foods.set('Namul', {href: "https://www.google.com/search?q=Namul", score: "0"})
+foods.set('Dak Galbi', {href: "https://www.google.com/search?q=Dak Galbi", score: "0"})
+foods.set('Jjapaguri', {href: "https://www.google.com/search?q=Jjapaguri", score: "0"})
+foods.set('Makgeolli', {href: "https://www.google.com/search?q=Makgeolli", score: "0"})
+foods.set('Gochujang', {href: "https://www.google.com/search?q=Gochujang", score: "0"})
+foods.set('Sundubu jjigae', {href: "https://www.google.com/search?q=Sundubu jjigae", score: "0"})
+foods.set('Ansim', {href: "https://www.google.com/search?q=Ansim", score: "0"})
+foods.set('Soju', {href: "https://www.google.com/search?q=Soju", score: "0"})
+foods.set('Gui', {href: "https://www.google.com/search?q=Gui", score: "0"})
+foods.set('Ansim', {href: "https://www.google.com/search?q=Ansim", score: "0"})
+foods.set('Japchae', {href: "https://www.google.com/search?q=Japchae", score: "0"})
+foods.set('Kalbi', {href: "https://www.google.com/search?q=Kalbi", score: "0"})
+foods.set('Samgyeopsal', {href: "https://www.google.com/search?q=Samgyeopsal", score: "0"})
+foods.set('Tteokbokki', {href: "https://www.google.com/search?q=Tteokbokki", score: "0"})
+foods.set('Jeon', {href: "https://www.google.com/search?q=Jeon", score: "0"})
+foods.set('Tteok', {href: "https://www.google.com/search?q=Tteok", score: "0"})
+foods.set('Kimbap', {href: "https://www.google.com/search?q=Kimbap", score: "0"})
+foods.set('Banchan', {href: "https://www.google.com/search?q=Banchan", score: "0"})
+foods.set('Bibimbap', {href: "https://www.google.com/search?q=Bibimbap", score: "0"})
+foods.set('Bulgogi', {href: "https://www.google.com/search?q=Bulgogi", score: "0"})
+foods.set('Kimchi', {href: "https://www.google.com/search?q=Kimchi'", score: "0"})
+
+function getRandomKey(collection) {
+    let keys = Array.from(collection.keys());
+    return keys[Math.floor(Math.random() * keys.length)];
+}
+
+var randomItem = getRandomKey(foods)
+document.getElementById("dish").innerHTML = randomItem;
+document.getElementById("dish").href = foods.get(randomItem).href;
+console.log(foods.get(randomItem).href)
+</script>
+</html>
