@@ -203,7 +203,6 @@ foods.set('Bibimbap', {href: "https://www.google.com/search?q=Bibimbap", score: 
 foods.set('Bulgogi', {href: "https://www.google.com/search?q=Bulgogi", score: "0"})
 foods.set('Kimchi', {href: "https://www.google.com/search?q=Kimchi'", score: "0"})
 
-
 function getRandomKey(collection) {
     let keys = Array.from(collection.keys());
     return keys[Math.floor(Math.random() * keys.length)];
@@ -213,18 +212,11 @@ function updateDish() {
     var randomItem = getRandomKey(foods);
     document.getElementById("dish").innerHTML = randomItem;
     document.getElementById("dish").href = foods.get(randomItem).href;
-    fetchImage(randomItem);
+    updateImage(randomItem);
 }
 
-function fetchImage(dishName) {
-    fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(dishName)}&client_id=5Zjoq7hqtAyu5kcM_h1Gu7V4u3FxniTNV2pZ9HpT0wU`)
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.results && data.results.length > 0) {
-                document.getElementById("dishImage").src = data.results[0].urls.small;
-            }
-        })
-        .catch(error => console.error('Error fetching image:', error));
+function updateImage(dishName) {
+    document.getElementById("dishImage").src = `/images/${encodeURIComponent(dishName.toLowerCase().replace(/\s+/g, '_'))}.jpg`;
 }
 
 document.addEventListener("DOMContentLoaded", updateDish);
