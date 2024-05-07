@@ -171,7 +171,7 @@ foods.set('Patbingsu', {href: "https://www.google.com/search?q=Patbingsu", score
 foods.set('Bossam', {href: "https://www.google.com/search?q=Bossam", score: "0"})
 foods.set('Jokbal', {href: "https://www.google.com/search?q=Jokbal", score: "0"})
 foods.set('Ssam', {href: "https://www.google.com/search?q=Ssam", score: "0"})
-foods.set('Samgak gimbap', {href: "https://www.google.com/search?q=Samgak gimbap", score: "0"})
+foods.set('Samgak_gimbap', {href: "https://www.google.com/search?q=Samgak gimbap", score: "0"})
 foods.set('Ssamjang', {href: "https://www.google.com/search?q=Ssamjang", score: "0"})
 foods.set('Baechu-kimchi', {href: "https://www.google.com/search?q=Baechu-kimchi", score: "0"})
 foods.set('Dakbokkeumtang', {href: "https://www.google.com/search?q=Dakbokkeumtang", score: "0"})
@@ -216,7 +216,7 @@ function updateDish() {
 }
 
 function updateImage(dishName) {
-    document.getElementById("dishImage").src = `/images/${encodeURIComponent(dishName.replace(/\s+/g, '_'))}.jpg`;
+    document.getElementById("dishImage").src = `/images/${encodeURIComponent(dishName.replace(/\s+/g, '-'))}.jpg`;
 }
 
 document.addEventListener("DOMContentLoaded", updateDish);
