@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  username  String     @unique
+  password  String
+  role      UserRole   @default(USER)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  menus     Menu[]
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model Menu {
+  id        String     @id @default(cuid())
+  title     String
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  items     MenuItem[]
+
+  @@index([userId])
+}
+
+model MenuItem {
+  id            String  @id @default(cuid())
+  name          String
+  description   String?
+  cuisineType   String?
+  restaurantUrl String?
+  imageUrl      String? @default("https://via.placeholder.com/300?text=Food+Item")
+  rating        Int?    @db.SmallInt // 1-5 stars
+  menuId        String
+  menu          Menu    @relation(fields: [menuId], references: [id], onDelete: Cascade)
+  itemType      ItemType @default(FOOD)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([menuId])
+}
+
+enum ItemType {
+  FOOD
+  DRINK
+}
